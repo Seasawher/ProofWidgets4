@@ -1,0 +1,19 @@
+{
+  "name": "ProofWidgets4 dev container",
+
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+
+  "postCreateCommand": "chmod +x .devcontainer/postCreateCommand.sh && .devcontainer/postCreateCommand.sh",
+
+  "customizations": {
+    "vscode" : {
+      "extensions" : [ "leanprover.lean4" ]
+    }
+  }
+}
