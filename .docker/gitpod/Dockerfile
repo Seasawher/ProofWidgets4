@@ -6,9 +6,17 @@ FROM ubuntu:latest
 
 USER root
 
-RUN apt-get update && apt-get install sudo git curl git bash-completion python3 python3-requests -y && apt-get clean
+RUN curl -sL https://deb.nodesource.com/setup_16.x
 
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash && apt-get install nodejs npm
+RUN apt-get update && apt-get install \
+  sudo \
+  git \
+  curl \
+  bash-completion \
+  python3 \
+  python3-requests \
+  nodejs -y && \
+  apt-get clean
 
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod \
     # passwordless sudo for users in the 'sudo' group
