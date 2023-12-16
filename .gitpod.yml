@@ -8,8 +8,10 @@ vscode:
 tasks:
   - name: Build Dependencies
     init: |
-      cd ./widget
-      NODE_OPTIONS='--max-old-space-size=4096'
-      npm clean-install && npm run build
-      cd ..
-      lake build ProofWidgets
+      (
+        cd ./widget
+        NODE_OPTIONS='--max-old-space-size=4096'
+        npm clean-install && npm run build
+        cd ..
+        lake build ProofWidgets
+      )
